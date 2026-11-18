@@ -13,9 +13,7 @@ COPY entrypoint.sh .
 
 RUN chmod +x entrypoint.sh
 
-COPY app.py .
-
-RUN apt-get update && apt-get install -y postgresql-client
+COPY wait_for_db.py app.py ./
 
 EXPOSE 5000
 
